@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+<h1> All Entries </h1>
+<ul>
+    {% for entry in dbEntries %}
+    <li> {{ entry.firstname }} {{ entry.lastname }} </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
