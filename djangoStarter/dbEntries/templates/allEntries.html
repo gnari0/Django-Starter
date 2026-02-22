@@ -1,16 +1,19 @@
 <!DOCTYPE HTML>
 <html>
 <body>
-<h1> Entries </h1>
-<ul>
-    {% for entry in dbEntries %}
-    <li> {{ entry.title }} {{ entry.description }} </li>
-    {% endfor %}
-</ul>
 <h1> Users </h1>
 <ul>
     {% for user in Users %}
-    <li> {{ user.firstname }} {{ user.lastname }} </li>
+    <li> 
+        {{ user.firstname }} {{ user.lastname }} 
+        <ul>
+            {% for entry in dbEntries %}
+            {% if entry.user_id == user.id %}
+            <li> {{ entry.title }} {{ entry.description }} </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </li>
     {% endfor %}
 </ul>
 </body>
