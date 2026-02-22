@@ -18,5 +18,5 @@ def Users(request):
     template = loader.get_template('allEntries.html')
     context = {
         'Users': Users,
-    }
+    }   
     return HttpResponse(template.render(context, request))

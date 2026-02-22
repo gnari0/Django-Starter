@@ -9,3 +9,4 @@ class User(models.Model):
 class dbEntry(models.Model):
   title = models.CharField(max_length=255)
   description = models.TextField(null=True)
+  user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
