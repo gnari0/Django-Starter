@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     path('dbEntries/', views.dbEntries, name='dbEntries'),
+    path('Users/', views.Users, name='Users'),
 ]
