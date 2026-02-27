@@ -9,7 +9,7 @@
         <ul>
             {% for entry in dbEntries %}
             {% if entry.user_id == user.id %}
-            <li> {{ entry.title }} {{ entry.description }} </li>
+            <li> {{ entry.title }}: {{ entry.description }} </li>
             {% endif %}
             {% endfor %}
         </ul>

@@ -8,5 +8,6 @@ def Users(request):
     template = loader.get_template('allUsers.html')
     context = {
         'Users': Users,
+        'dbEntries': dbEntry.objects.all().values(),
     }   
     return HttpResponse(template.render(context, request))
