@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_views.homePage, name='homePage'),
     path('users/', user_views.Users, name='Users'),
+    path('users/<int:user_id>/', user_views.userDetails, name='userDetails'),
 ]

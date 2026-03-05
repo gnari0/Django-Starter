@@ -1,19 +1,12 @@
 <!DOCTYPE HTML>
 <html>
 <body>
-<h1> Users </h1>
 <a href="/">Home</a>
+<h1> Users </h1>
 <ul>
     {% for user in Users %}
     <li> 
-        {{ user.firstname }} {{ user.lastname }} 
-        <ul>
-            {% for entry in dbEntries %}
-            {% if entry.user_id == user.id %}
-            <li> {{ entry.title }}: {{ entry.description }} </li>
-            {% endif %}
-            {% endfor %}
-        </ul>
+        <a href={{user.id}}> {{ user.firstname }} {{ user.lastname }} </a>
     </li>
     {% endfor %}
 </ul>
