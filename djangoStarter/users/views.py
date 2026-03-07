@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
 from .models import User, dbEntry
+from django.contrib.auth import authenticate, login
 
 def Users(request):
     Users = User.objects.all().values()
@@ -22,3 +23,19 @@ def userDetails(request, user_id):
         'entries': entries,
     }
     return HttpResponse(template.render(context, request))
+
+def userLogin(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            # Redirect to a success page
+            return redirect('home')
+        else:
+            # Return an 'invalid login' error message
+            # You can add a message here using the messages framework
+            return render(request, 'login.html', {'error': 'Invalid credentials'})
+    else:
+        return render(request, 'login.html')

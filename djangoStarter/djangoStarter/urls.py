@@ -24,4 +24,5 @@ urlpatterns = [
     path('', main_views.homePage, name='homePage'),
     path('users/', user_views.Users, name='Users'),
     path('users/<int:user_id>/', user_views.userDetails, name='userDetails'),
+    path('users/login/', user_views.userLogin, name='userLogin')
 ]
