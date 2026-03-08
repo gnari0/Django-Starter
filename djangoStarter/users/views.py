@@ -28,12 +28,15 @@ def userLogin(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
+        print(f"user: {username}, pass: {password}")
         user = authenticate(request, username=username, password=password)
         if user is not None:
+            print(f"user login: {username}")
             login(request, user)
             # Redirect to a success page
-            return redirect('home')
+            return redirect('/')
         else:
+            print(f"failed login: {username}")
             # Return an 'invalid login' error message
             # You can add a message here using the messages framework
             return render(request, 'login.html', {'error': 'Invalid credentials'})
