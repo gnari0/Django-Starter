@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
 from .models import User, dbEntry
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 def Users(request):
     Users = User.objects.all().values()
@@ -10,16 +10,17 @@ def Users(request):
     template = loader.get_template('allUsers.html')
     context = {
         'Users': Users,
-        'dbEntries': dbEntries,
     }   
     return HttpResponse(template.render(context, request))
 
 def userDetails(request, user_id):
     entries = dbEntry.objects.filter(user=user_id).values()
-    user = User.objects.get(id=user_id)
+    userDetails = User.objects.get(id=user_id)
+    user = request.user
     template = loader.get_template('userDetails.html')
     context = {
         'user': user,
+        'userDetails': userDetails,
         'entries': entries,
     }
     return HttpResponse(template.render(context, request))
@@ -42,3 +43,7 @@ def userLogin(request):
             return render(request, 'login.html', {'error': 'Invalid credentials'})
     else:
         return render(request, 'login.html')
+    
+def userLogout(request):
+    logout(request)
+    return redirect('/')

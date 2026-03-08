@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <a href="/users/">Users</a>
-        <a href="/users/login">Login</a>
+        <a href="/users">Users</a>
+        {% if user.id %}
+            <a href="/users/{{user.id}}">@{{user.username}}</a>
+        {% else %}
+            <a href="users/login">login</a>
+        {% endif %}
         <h1>HOMEPAGGe</h1>
         <p>Welcome to butt!</p>
     </body>
