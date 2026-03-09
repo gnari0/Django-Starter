@@ -7,7 +7,21 @@
         {% else %}
             <a href="users/login">login</a>
         {% endif %}
-        <h1>HOMEPAGGe</h1>
-        <p>Welcome to butt!</p>
+        <h1>Mochi's World</h1>
+        {% if ascii %}
+            <p style="white-space: pre; font-size: 8px; font-family: monospace"> {{ascii}} </p>
+        {% endif %}
+        <!-- <script>
+            fetch('./ascii.txt')
+                .then(response => response.text()) // Get the response as plain text
+                .then(data => {
+                    console.log(data); // The text content of the file
+                })
+                .catch(error => {
+                    console.error('Error fetching file:', error);
+                    var data = "error 404"
+                });
+            document.getElementById("ascii").innerHTML = data;
+        </script> -->
     </body>
 </html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./css/navbar.css">
+    </head>
+    
+    <div id="outline">
+        {% if user.id %}
+            <a href="/users/{{user.id}}">@{{user.username}}</a>
+        {% else %}
+            <a href="users/login">login</a>
+        {% endif %}
+    </div>
+</html>

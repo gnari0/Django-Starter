@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <a href="/">Home</a>
-        <h1>loguini</h1>
-        <form action="{% url 'userLogin' %}" method="post">
+        <h1>create account</h1>
+        <form action="{% url 'createAccount' %}" method="post">
             {% csrf_token %}
             <input type="text" placeholder="username" name="username">
             <br>
             <input type="password" placeholder="password" name="password">
             <br>
+            <input type="password" placeholder="confirm password" name="password">
+            <br>
             <input type="submit" value="submit">
         </form>
-        <a style="font-size:12px;" href="/users/signup">create account</a>
     </body>
 </html>
