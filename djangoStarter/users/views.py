@@ -49,18 +49,15 @@ def userLogout(request):
     return redirect('/')
 
 def userSignup(request):
-    template = loader.get_template('signup.html')
-    context = {
+    if request.method == 'POST':
+        username=request.POST.get('username')
+        password=request.POST.get('password')
+        u = User.objects.create_user(username=username, password=password)
+        u.save()
+        return redirect('/')
+    else:
+        return render(request, 'signup.html')
 
-    }
-    return HttpResponse(template.render(context, request))
-
-def createAccount(request):
-    username=request.POST.get('username')
-    password=request.POST.get('password')
-    u = User(username=username, password=password)
-    u.save()
-    return redirect('/')
 
 def postUserEntry(request):
     title = request.POST.get('title')
