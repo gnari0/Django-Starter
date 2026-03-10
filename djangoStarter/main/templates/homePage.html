@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html style="margin:0px">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'navbar.css' %}" />
+
+    {% include "navbar.html" %}
     <body>
-        <a href="/users">Users</a>
-        {% if user.id %}
-            <a href="/users/{{user.id}}">@{{user.username}}</a>
-        {% else %}
-            <a href="users/login">login</a>
-        {% endif %}
         <h1>Mochi's World</h1>
         {% if ascii %}
             <p style="white-space: pre; font-size: 8px; font-family: monospace"> {{ascii}} </p>

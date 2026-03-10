@@ -10,6 +10,8 @@ def homePage(request):
             txt = file.read()
     except Exception as e:
         print(f"error loading ascii: {e}")
+
+    
     context = {
         'ascii': txt,
     }
