@@ -1,7 +1,12 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'navbar.css' %}" />
+
 <header>
+    <a id="navbar" href="/">home</a>
+    <a id="navbar" href="/users/">users</a>
     {% if user.id %}
-        <a href="/users/{{user.id}}" style="align-content: right;">@{{user.username}}</a>
+        <a id="navbar" href="/users/{{user.id}}">@{{user.username}}</a>
     {% else %}
-        <a href="users/login">login</a>
+        <a id="navbar" href="users/login">login</a>
     {% endif %}
 </header>

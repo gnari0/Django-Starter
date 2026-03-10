@@ -1,4 +1,17 @@
 header {
-    background-color: rgb(29, 29, 29); 
-    width:100%
+    box-sizing: border-box;
+    width: 100%;
+    background-color: rgb(20, 20, 20);
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#navbar {
+    color: white;
 }

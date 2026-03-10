@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'homePage.css' %}" />
+    {% include "navbar.html" %}
     <body>
-        <a href="/">Home</a>
         <h1>loguini</h1>
         <form action="{% url 'userLogin' %}" method="post">
             {% csrf_token %}

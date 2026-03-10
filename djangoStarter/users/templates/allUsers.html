@@ -1,13 +1,16 @@
 <!DOCTYPE HTML>
 <html>
-<body>
-<a href="/">Home</a>
-<h1> Users </h1>
-<ul>
-    {% for user in Users %}
-    <li> 
-        <a href={{user.id}}> {{ user.firstname }} {{ user.lastname }} </a>
-    </li>
-    {% endfor %}
-</ul>
-</body>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'homePage.css' %}" />
+    {% include "navbar.html" %}
+    <body>
+    <h1> Users </h1>
+    <ul>
+        {% for user in Users %}
+        <li> 
+            <a href={{user.id}}> {{ user.username }} </a>
+        </li>
+        {% endfor %}
+    </ul>
+    </body>
+</html>

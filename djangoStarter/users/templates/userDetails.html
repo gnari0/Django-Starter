@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
-<body>
-    <a href="/users/">Users</a>
-    {% if user.id == userDetails.id %}
-        <a href="/users/logout">logout</a>
-    {% endif %}
-    <h1> {{ userDetails.firstname }} {{ userDetails.lastname }} User Profile</h1>
-    <p> ID: {{ userDetails.id }} </p>
-    <p> Entries: </p>
-    <ul>
-        {% for entry in entries %}
-            <li>
-                {{ entry.title }}: {{ entry.description }}
-            </li>
-        {% endfor %}
-    </ul>
-</body>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'homePage.css' %}" />
+    {% include "navbar.html" %}
+    
+    <body>
+        {% if user.id == userDetails.id %}
+            <a href="/users/logout">logout</a>
+        {% endif %}
+        <h1> {{ userDetails.firstname }} {{ userDetails.lastname }} User Profile</h1>
+        <p> ID: {{ userDetails.id }} </p>
+        <p> Entries: </p>
+        <ul>
+            {% for entry in entries %}
+                <li>
+                    {{ entry.title }}: {{ entry.description }}
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
 </html>
